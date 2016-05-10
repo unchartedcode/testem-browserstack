@@ -42,12 +42,6 @@
       "exe": "./bin/run_on_browserstack.js",
       "args": [ "Windows", "10", "ie", "11.0", "" ],
       "protocol": "browser"
-    },
-
-    "bs_android_S4": {
-      "exe": "./bin/run_on_browserstack.js",
-      "args": [ "android", "4.3", "android", "", "Samsung Galaxy S4" ],
-      "protocol": "browser"
     }
   },
   "launch_in_dev": [],
@@ -57,8 +51,7 @@
     "bs_firefox",
     "bs_safari_71",
     "bs_safari_51",
-    "bs_ie_11",
-    "bs_android_S4"
+    "bs_ie_11"
   ],
   "src_files": [
     "test/*"

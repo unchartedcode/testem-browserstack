@@ -6,7 +6,7 @@ var name = null
 
 var client = BrowserStack.createClient({
   username: process.env.BROWSERSTACK_USERNAME,
-  password: process.env.BROWSERSTACK_KEY
+  password: process.env.BROWSERSTACK_ACCESS_KEY
 });
 
 'SIGINT SIGTERM SIGHUP'.split(' ').forEach(function(evt) {

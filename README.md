@@ -13,7 +13,3 @@
 
 - To run single test, run `npm run single`
 - To run parallel tests, run `npm run parallel`
-
-### Notes
-
-- In order to test on different set of browsers, check out our [code generator](https://www.browserstack.com/automate/python#setting-os-and-browser)

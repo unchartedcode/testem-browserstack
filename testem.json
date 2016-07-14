@@ -1,59 +1,52 @@
 {
+  "bs_user": "BROWSERSTACK_USERNAME",
+  "bs_key": "BROWSERSTACK_ACCESS_KEY",
+
   "framework": "jasmine",
-  "parallel": 5,
+  "parallel": 4,
+  
   "on_start": {
-    "command": "kill -9 $(ps -A | grep BrowserStackLocal | grep -v grep | cut -d ' ' -f2); ./bin/start-BrowserStackLocal.js &",
-    "wait_for_text": "Tunnel started",
+    "command": "kill -9 $(ps -A | grep BrowserStackLocal | grep -v grep | cut -d ' ' -f2); ./scripts/browserstack-local.js &",
+    "wait_for_text": "Tunnel Started",
     "wait_for_text_timeout": 300000
   },
-  "on_exit": "./bin/stop-BrowserStackLocal.js `cat browserStackLocal.pid`; rm browserStackLocal.pid",
+  
+  "on_exit": "./scripts/browserstack-local.js `cat browserstack-local.pid`; rm browserstack-local.pid",
+  
   "launchers": {
-    "bs_opera": {
-      "exe": "./bin/run_on_browserstack.js",
-      "args": [ "Windows", "10", "opera", "latest", "" ],
-      "protocol": "browser"
-    },
-
-    "bs_firefox": {
-      "exe": "./bin/run_on_browserstack.js",
-      "args": [ "Windows", "10", "firefox", "latest", "" ],
-      "protocol": "browser"
-    },
-
     "bs_chrome": {
-      "exe": "./bin/run_on_browserstack.js",
-      "args": [ "OS X", "El Capitan", "chrome", "latest", "" ],
+      "exe": "./scripts/browserstack.js", 
+      "args": [ "OSX", "ElCapitan", "chrome", "51.0", "" ],
       "protocol": "browser"
     },
-
-    "bs_safari_71": {
-      "exe": "./bin/run_on_browserstack.js",
-      "args": [ "OS X", "Mavericks", "safari", "7.1", "" ],
+    "bs_firefox": {
+      "exe": "./scripts/browserstack.js",
+      "args": [ "Windows", "10", "firefox", "45.0", "" ],
       "protocol": "browser"
     },
-
-    "bs_safari_51": {
-      "exe": "./bin/run_on_browserstack.js",
-      "args": [ "OS X", "Snow Leopard", "safari", "5.1", "" ],
+    "bs_safari": {
+      "exe": "./scripts/browserstack.js", 
+      "args": [ "OSX", "ElCapitan", "safari", "9.1", "" ],
       "protocol": "browser"
     },
-
-    "bs_ie_11": {
-      "exe": "./bin/run_on_browserstack.js",
+    "bs_ie": {
+      "exe": "./scripts/browserstack.js", 
       "args": [ "Windows", "10", "ie", "11.0", "" ],
       "protocol": "browser"
     }
   },
+
   "launch_in_dev": [],
+
   "launch_in_ci": [
-    "bs_opera",
     "bs_chrome",
     "bs_firefox",
-    "bs_safari_71",
-    "bs_safari_51",
-    "bs_ie_11"
+    "bs_safari",
+    "bs_ie"
   ],
+
   "src_files": [
-    "test/*"
+    "src/*",
+    "tests/*"
   ]
 }

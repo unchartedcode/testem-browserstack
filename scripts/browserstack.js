@@ -2,11 +2,12 @@
 
 var WORKER_ID = 0;
 var BrowserStack = require('browserstack');
+var config = require('../testem.json');
 var name = null
 
 var client = BrowserStack.createClient({
-  username: process.env.BROWSERSTACK_USERNAME,
-  password: process.env.BROWSERSTACK_ACCESS_KEY
+  username: process.env.BROWSERSTACK_USERNAME || config.bs_user,
+  password: process.env.BROWSERSTACK_ACCESS_KEY || config.bs_key
 });
 
 'SIGINT SIGTERM SIGHUP'.split(' ').forEach(function(evt) {
@@ -31,10 +32,9 @@ var settings = {
   browser_version: process.argv[5],
   device: process.argv[6],
   url: process.argv[7],
-
   'browserstack.local': true,
   name: name,
-  build: 'Testem Sample Tests'
+  build: 'testem-browserstack'
 };
 
 for (var i in settings) {
@@ -42,6 +42,8 @@ for (var i in settings) {
     delete settings[i];
   }
 }
+
+console.log(settings);
 
 client.createWorker(settings, function(error, worker) {
   if (error) console.log(error);

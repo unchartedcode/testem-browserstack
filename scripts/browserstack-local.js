@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 
+if(process.argv[2]){
+  process.kill(process.argv[2], 'SIGINT');
+  process.exit(0);
+}
+
 var browserstack = require('browserstack-local');
 var fs = require('fs');
 
-var pidFile = 'browserStackLocal.pid';
+var pidFile = 'browserstack-local.pid';
 var bs_local = new browserstack.Local();
 var bs_local_args = {
   'key': process.env.BROWSERSTACK_ACCESS_KEY,
@@ -17,7 +22,7 @@ process.on('SIGINT', function() {
       if (error) {
         console.log(error);
       } else {
-        console.log('BrowserStackLocal disconnected');
+        console.log('BrowserStackLocal Disconnected');
         process.exit();
       }
     });
@@ -30,6 +35,6 @@ bs_local.start(bs_local_args, function(error) {
   if (error) {
     console.log(error);
   } else {
-    console.log("Tunnel started");
+    console.log("Tunnel Started");
   }
 });

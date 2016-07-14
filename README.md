@@ -1,14 +1,20 @@
-Testem with BrowserStack
-========================
+# testem-browserstack
 
-Run your tests on various browsers hosted on Browserstack!
+[Testem](https://github.com/testem/testem) Integration with BrowserStack.
 
-Instructions
-------------
+## Setup
 
-1. Get a [BrowserStack](browserstack.com) account.
-2. For BrowserStack Authentication export the environment variables for the username and access key of your BrowserStack account. These can be found on the automate accounts page on [BrowserStack](https://www.browserstack.com/accounts/automate) `export BROWSERSTACK_USERNAME=<browserstack-username> && export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>`
-3. Install the dependencies by running `npm install browserstack browserstack-local`
-4. Install testem globally by running `npm install testem -g`
-5. Run the command `testem ci -l bs_chrome` to test out the setup with just the Chrome browser hosted BrowserStack.
-6. Run `testem ci` to run it on all the listed browsers - see `testem launchers` for the full list.
+- Clone the repo
+- Install dependencies `npm install`
+- Update `testem.json` file with your BrowserStack Username and Access Key. (These can be found in the [settings](https://www.browserstack.com/accounts/settings) section on BrowserStack accounts page)
+- Alternatively, you can export the environment variables for the Username and Access Key of your BrowserStack account. `export BROWSERSTACK_USERNAME=<browserstack-username> && export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>`
+
+### Run the tests
+
+- To run single test, run `npm run single`
+- To run parallel tests, run `npm run parallel`
+- To run local tests, run `npm run local`
+
+### Notes
+
+- In order to test on different set of browsers, check out our [code generator](https://www.browserstack.com/automate/python#setting-os-and-browser)

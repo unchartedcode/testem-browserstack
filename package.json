@@ -1,0 +1,23 @@
+{
+  "name": "testem-browserstack",
+  "version": "0.1.0",
+  "readme": "Testem Integration with [BrowserStack](https://www.browserstack.com)",
+  "description": "Selenium examples for Testem and BrowserStack Automate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/browserstack/testem-browserstack.git"
+  },
+  "scripts": {
+    "test": "npm run single && npm run parallel",
+    "single": "./node_modules/.bin/testem ci -l bs_chrome",
+    "parallel": "./node_modules/.bin/testem ci"
+  },
+  "devDependencies": {
+    "testem": "*",
+    "browserstack": "*",
+    "selenium-webdriver": "^2.53.2"
+  },
+  "dependencies": {
+    "browserstack-local": "^1.0.0"
+  }
+}

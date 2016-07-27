@@ -1,14 +1,29 @@
-Testem with BrowserStack
-========================
+# testem-browserstack
+[Testem](https://github.com/testem/testem) Integration with BrowserStack.
 
-Run your tests on various browsers hosted on Browserstack!
+![BrowserStack Logo](https://d98b8t1nnulk5.cloudfront.net/production/images/layout/logo-header.png?1469004780)
 
-Instructions
-------------
+## Setup
+* Clone the repo
+* Install dependencies `npm install`
+* Update `testem.json` file with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
 
-1. Get a [BrowserStack](browserstack.com) account.
-2. For BrowserStack Authentication export the environment variables for the username and access key of your BrowserStack account. These can be found on the automate accounts page on [BrowserStack](https://www.browserstack.com/accounts/automate) `export BROWSERSTACK_USERNAME=<browserstack-username> && export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>`
-3. Install the dependencies by running `npm install browserstack browserstack-local`
-4. Install testem globally by running `npm install testem -g`
-5. Run the command `testem ci -l bs_chrome` to test out the setup with just the Chrome browser hosted BrowserStack.
-6. Run `testem ci` to run it on all the listed browsers - see `testem launchers` for the full list.
+## Running yourtests
+* To run a single test, run `npm run single`
+* To run parallel tests, run `npm run parallel`
+
+## Notes
+* You can view your test results on the [BrowserStack automate dashboard](https://www.browserstack.com/automate)
+* To test on a different set of browsers, check out our [platform configurator](https://www.browserstack.com/automate/node#setting-os-and-browser)
+* You can export the environment variables for the Username and Access Key of your BrowserStack account
+  
+  ```
+  export BROWSERSTACK_USERNAME=<browserstack-username> &&
+  export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
+  ```
+  
+## Additional Resources
+* [Customizing your tests on BrowserStack](https://www.browserstack.com/automate/capabilities)
+* [Browsers & mobile devices for JavaScript testing on BrowserStack](https://www.browserstack.com/list-of-browsers-and-platforms?product=js_testing)
+* [Using REST API to access information about your tests via the command-line interface](https://www.browserstack.com/automate/rest-api)
+ 

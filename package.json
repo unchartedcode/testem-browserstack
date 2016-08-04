@@ -12,6 +12,10 @@
     "single": "./node_modules/.bin/testem ci -l bs_chrome",
     "parallel": "./node_modules/.bin/testem ci"
   },
+  "bin": {
+    "browserstack-local": "./scripts/browserstack-local.js",
+    "browserstack": "./scripts/browserstack.js"
+  },
   "devDependencies": {
     "testem": "*",
     "browserstack": "*",

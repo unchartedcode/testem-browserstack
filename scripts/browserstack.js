@@ -2,12 +2,11 @@
 
 var WORKER_ID = 0;
 var BrowserStack = require('browserstack');
-var config = require('../testem.json');
 var name = null
 
 var client = BrowserStack.createClient({
-  username: process.env.BROWSERSTACK_USERNAME || config.bs_user,
-  password: process.env.BROWSERSTACK_ACCESS_KEY || config.bs_key
+  username: process.env.BROWSERSTACK_USERNAME,
+  password: process.env.BROWSERSTACK_ACCESS_KEY
 });
 
 'SIGINT SIGTERM SIGHUP'.split(' ').forEach(function(evt) {

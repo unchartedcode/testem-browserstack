@@ -48,8 +48,6 @@ for (var i in settings) {
   }
 }
 
-console.log(settings);
-
 client.createWorker(settings, function(error, worker) {
   if (error) console.log(error);
   WORKER_ID = worker.id

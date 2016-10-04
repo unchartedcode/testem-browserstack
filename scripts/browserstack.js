@@ -22,6 +22,8 @@ var client = BrowserStack.createClient({
 
 if (process.env.TRAVIS_JOB_NUMBER) {
   name = process.env.TRAVIS_JOB_NUMBER;
+} else if (process.env.CIRCLE_BUILD_NUM) {
+  name = process.env.CIRCLE_BUILD_NUM;
 }
 
 var settings = {
@@ -35,6 +37,10 @@ var settings = {
   name: name,
   build: 'testem-browserstack'
 };
+
+if (process.env.CIRCLE_PROJECT_REPONAME) {
+  settings.project = process.env.CIRCLE_PROJECT_REPONAME;
+}
 
 for (var i in settings) {
   if (settings[i] === null || settings[i] === '' || settings[i] === 'nil') {

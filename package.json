@@ -7,21 +7,15 @@
     "type": "git",
     "url": "git+https://github.com/browserstack/testem-browserstack.git"
   },
-  "scripts": {
-    "test": "npm run single && npm run parallel",
-    "single": "./node_modules/.bin/testem ci -l bs_chrome",
-    "parallel": "./node_modules/.bin/testem ci"
-  },
   "bin": {
-    "browserstack-local": "./scripts/browserstack-local.js",
-    "browserstack": "./scripts/browserstack.js"
+    "browserstack-local.js": "./scripts/browserstack-local.js",
+    "browserstack.js": "./scripts/browserstack.js"
   },
   "devDependencies": {
-    "testem": "*",
-    "browserstack": "*",
     "selenium-webdriver": "^2.53.2"
   },
   "dependencies": {
+    "browserstack": "^1.5.0",
     "browserstack-local": "^1.0.0"
   }
 }

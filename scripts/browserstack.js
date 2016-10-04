@@ -35,7 +35,7 @@ var settings = {
   url: process.argv[7],
   'browserstack.local': true,
   name: name,
-  build: 'testem-browserstack'
+  build: process.env.BUILD_NAME || 'testem-browserstack'
 };
 
 if (process.env.CIRCLE_PROJECT_REPONAME) {

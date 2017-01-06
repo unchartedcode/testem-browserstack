@@ -40,6 +40,12 @@ var settings = {
 
 if (process.env.CIRCLE_PROJECT_REPONAME) {
   settings.project = process.env.CIRCLE_PROJECT_REPONAME;
+} else if (process.env.PROJECT_NAME) {
+  settings.project = process.env.PROJECT_NAME;
+}
+
+if (process.env.BROWSERSTACK_IDLE_TIMEOUT) {
+  settings.timeout = process.env.BROWSERSTACK_IDLE_TIMEOUT;
 }
 
 for (var i in settings) {

@@ -59,6 +59,4 @@ client.createWorker(settings, function(error, worker) {
   WORKER_ID = worker.id
 });
 
-setTimeout(function() {
-  client.terminateWorker(WORKER_ID);
-}, 600000);
+process.stdin.resume();
